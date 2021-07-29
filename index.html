@@ -1,0 +1,356 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <img width='50' height='50' src="https://drive.google.com/uc?id=1T-McWvkWOWTpynS0TX2roYbVF7QzLh-f" alt="">
+
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#Home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#About">About Me</a>
+                <a id='hiddenLink' class="nav-item nav-link" href="#fullProfile" hidden>Profile Unlocked</a>
+                <a id='hiddenLink2' class="nav-item nav-link" href="#memoryLane" hidden>Random memories</a>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="Home" class='heightFull'>
+        <div class='justify-content-center align-items-center'>
+            <canvas id='myCanvas'></canvas>
+
+        </div>
+        <div class="alignCenter">
+            <a href="#About" class="alignCenter"><img class='rotateimg90 nextBtn'
+                    src="https://img.icons8.com/ios/452/circled-chevron-right.png" alt=""></a>
+        </div>
+    </div>
+
+    <div id="About">
+        <div class="alignCenter" id=''>
+            <a href="#Home" class=""><img id='aboutLink' class='rotateimg270 nextBtn'
+                    src="https://img.icons8.com/ios/452/circled-chevron-right.png" alt=""></a>
+        </div>
+        <div id='aboutWrapper'>
+            <div class="row">
+                <div class="col-3"></div>
+                <img class='col-3 ' id='aboutImg' src="https://drive.google.com/uc?id=1qGtxvKdgZ1KDheYndZafE5CEFRcnlo5h"
+                    alt="" />
+                <div class="col-1"></div>
+                <div class="col-4">
+                    <h1 class='fontMono colourAnimate'>About Me :</h1>
+                    <p>Before I tell you, let's play a game :D</p>
+                    <br>
+
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
+                        <i>Instructions</i>
+                    </button>
+
+                    <!-- Instruction Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Instructions : </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Here are the instructions. You must unscramble 3 anagrams before
+                                    I reveal my full profile :D Simply type the answer in the provided
+                                    text box if you think you know the answer. But do note that a wrong
+                                    answer would mean you have to restart! Although if you really don't want to waste
+                                    your
+                                    time you can choose to give up🥺 &nbspBut I hope you don't because
+                                    <strong><i>PERSEVERENCE</i></strong> is key😔 &nbsp Good luck!
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <button id='startGameBtn' onclick="startGame()">Start Game </button>
+                    <br><br>
+                    <div id="Game" hidden>
+                        <img id='closeBtn' onclick='closeGame()'
+                            src="https://img.icons8.com/plasticine/2x/close-window.png" alt="">
+                        <div class="justify-content-center align-self-center">
+                            <br>
+                            <h3 id='question'></h3>
+                            <input type="text" id='gameUserInp' placeholder="Type answer here">
+                            <button id='gSubmit'>Submit</button>
+                            <button id='giveUp' onclick='giveup()'>I quit...</button>
+
+                            <br><br>
+                            <strong>
+                                <h4 id='unscramble'>Unscramble this :</h4>
+                            </strong>
+                            <div id="anagram"></div>
+
+
+                        </div>
+                    </div>
+
+                    <div id='winIntroPage' hidden>
+                        <h2 class='fontMono'>Congratulations🥂 Here's my <a href="#fullProfile">profile
+                            </a></h2>
+                        <div class="alignCenter">
+
+                        </div>
+                    </div>
+                    <div id='giveUpIntroPage' hidden>
+                        <h2 class='fontMono'>QUITTERRRR!! no just kidding here' s my <a href="#fullProfile">profile
+                            </a> :D</h2>
+                        <div class="alignCenter">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alignCenter" id='fullProfLink' hidden>
+            <a href="#fullProfile" class="alignCenter"><img class='rotateimg90 nextBtn90' id='fullProfLinkImg'
+                    src="https://img.icons8.com/ios/452/circled-chevron-right.png" alt=""></a>
+        </div>
+
+        <br><br><br><br>
+
+    </div>
+
+    <div id="fullProfile" class='' hidden>
+        <div class="alignCenter" id=''>
+            <a href="#About" class=""><img id='goBackToAboutLink' class='rotateimg270 nextBtn'
+                    src="https://img.icons8.com/ios/452/circled-chevron-right.png" alt=""></a>
+        </div>
+        <div id='fullProfTop'>
+            <h2 id='fullProfHi'>Hi! I'm Glenda👋</h2>
+        </div>
+        <div id='fullProfBottom'>
+            <div class="row" id='profBlock1'>
+                <div class="col-2"></div>
+                <div class="col-6" id='profText1'>
+                    <p>
+                        I’m currently a student studying at Hwa Chong Institution, and I’m 18 this year (although if you
+                        played the game you would know that🤪&nbsp). In school, I like to participate actively in as
+                        many
+                        things
+                        as I can because I genuinely love experiencing new things. For example, one of the bravest
+                        things
+                        I’ve done is taking 2 sports CCAs in JC, Table Tennis and Floorball. I risked everything and
+                        truly
+                        decided to be that fish that stubbornly chooses to swim upstream🐠and put aside everything to
+                        pursue
+                        this new sport that gave me so much adrenaline and excitement. And I have to say it was worth
+                        it.🥳 By
+                        God’s grace, I was given the honour to serve as the captain of floorball, and also got elected
+                        into
+                        Hwa Chong CCA Council! After reading this, you’ll either think I’m ridiculously brave or
+                        ridiculously stupid🤪. Either way, I have God and my friends and family to thank for getting
+                        this
+                        far,
+                        and by no means was it my own effort that enabled me to experience so many different things.
+                    </p>
+
+                </div>
+                <div class="col-4">
+                    <img class='fullProfPics' src="https://drive.google.com/uc?id=19OatG0DC7RVSTfRbxTBDvT2Ohuuoej5K"
+                        alt="">
+
+                </div>
+            </div>
+            <div class="row" id='profBlock2'>
+                <div class="col-4">
+                    <img class='fullProfPics' src="https://drive.google.com/uc?id=1ZbMGxVSRePTK6BRXtN5z3pspP56aobnL"
+                        alt="">
+                </div>
+                <div class="col-5" id='profText2'>
+                    <p>Also, I have a passion for music🤗 I’m no prodigy, but there’s something cathartic about playing
+                        and
+                        listening to music. Music is also something that helps me focus while drowning out the other
+                        noises
+                        to zero in on the tasks at hand. Music is magical in that way, it helps me stay productive and
+                        relax
+                        all at the same time. On top of that, there’s music to match every mood, and a tune fit for
+                        every
+                        circumstance :D</p>
+
+                </div>
+                <div class="col-3">
+                </div>
+            </div>
+            <div class="row" id='profBlock3'>
+                <div class="col-1"></div>
+                <div class="col-6" id='profText3'>
+                    <p>
+                        Last but definitely not least, I am also deeply interested in math and science (I try not to be
+                        a
+                        nerd about it😔). I was lucky enough to be accepted in the Science Math Talent Programme in Hwa
+                        Chong, and being with a group of people as geeky as I am made me realise that I really do have a
+                        passion for these subjects. However, one particular field has my special attention, the apple
+                        of
+                        my science eye... computer programming! Seeing lines of code produce beautiful (and sometimes
+                        not so
+                        beautiful) results is exhilarating. Like a carpenter who builds furniture with his hands, I
+                        aspire to be a
+                        programmer who builds solutions with her code. This element of solving real problems is what got
+                        me
+                        in love with Hackathons🥳 and I’ve been blessed enough to have gotten to know like minded people
+                        that share my passion, and we have embarked on different Hackathon as a team. For example, we
+                        built
+                        a water management system, making use of machine learning and object detection to calculate the
+                        amount of water flowing out of a tap to help people accurately track their water usage without
+                        complicated installation. This was my first ever Hackathon, and it was super memorable. It
+                        could’ve
+                        been the severe lack of sleep, the coffee, or the overdose of chips and sugar that we consumed,
+                        but
+                        I left the Hackathon super high, and super duper proud of what we had accomplished, knowing that
+                        our solution had the
+                        potential
+                        to do some good to this world. And the added bonus was that our solution won 2nd place in the
+                        IMDA
+                        Xtreme apps Hackathon:D
+                    </p>
+                </div>
+                <div class="col-5">
+                    <img id='fullProfPicAWS' src="https://drive.google.com/uc?id=18luggj6KQiAkLJHM3bcIvyKMLRDQvFn_"
+                        alt="">
+
+                </div>
+            </div>
+
+            <div class="row" id='profBlock4'>
+                <div class="col-4">
+                    <img class='fullProfPics' src="https://drive.google.com/uc?id=1sbfDov3K0UpJQJU3CZH-T19oxFzmVL7u"
+                        alt="">
+                </div>
+                <div class="col-6" id='profText4'>
+                    <p>
+                        Last year, we also took part in the AWS Build On Hackathon and this experience deserves a whole
+                        paragraph
+                        of its own. It was during our Block Test season, and we were stressed trying to juggle all the
+                        work
+                        we had to do. I won’t go too much into the technicalities of our solution lest I bore you (if I
+                        haven't done so already HAHA), but we built a
+                        Visitor
+                        Management System for hospitals to help them in the season of COVID19 to ease their additional
+                        responsibilities following the pandemic. This was memorable because we worked very hard on our
+                        solution, forgoing precious time for revision and having major CRISES over whether we would be
+                        able to finish the 745892323448 stacks of work that we (rather readily) abandoned for our
+                        project. Our
+                        hard
+                        work paid off, and we managed to build a full system in about a month. We were also rewarded
+                        with
+                        the Most Innovative award, Audience Award, and 2nd place. My block test results on the other
+                        hand ..... AHAHA I'll leave that to your imagination 👉👈
+                    </p>
+
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div id="memoryLane" class='heightFull' hidden>
+
+        <h2 id='memoryTitle'>Trip Down Glenda's Consciousness 🛣</h2>
+        <div class="memoryContainer">
+            <div class="imgCont">
+                <img class=' image' src="https://drive.google.com/uc?id=1lFrdMWM-2DLNfyo1nWwtmjjdM6uHGZzK" alt="" />
+                <div class="overlay">
+                    <div class="text">Random picture taken on one of my walks :D</div>
+                </div>
+            </div>
+            <div class="imgCont">
+                <img class='image' src="https://drive.google.com/uc?id=175cm7Eh7Xnx2oIlr_vsaMZbUEZlV5Sx0" alt="" />
+                <div class="overlay">
+                    <div class="text">First ever class picture ;D</div>
+                </div>
+            </div>
+
+            <div class="imgCont">
+                <img class='image' src="https://drive.google.com/uc?id=1EjQSnCL-opp45K6jocogwQs0ArF762fz" alt="" />
+                <div class="overlay">
+                    <div class="text">Hope you're not hungry now... :p
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="memoryContainer">
+            <div class="imgCont">
+                <img class=' image' src="https://drive.google.com/uc?id=16ljy5Vw42yd7Qp2ecHTlZjo26CIK037X" alt="" />
+                <div class="overlay">
+                    <div class="text">I was a model for a friend who wanted to try her film camera</div>
+                </div>
+            </div>
+            <div class="imgCont">
+                <img class='image' src="https://drive.google.com/uc?id=1mMIQNcwXMWf4VsBRCaHjkGIvHd2gIMs4" alt="" />
+                <div class="overlay">
+                    <div class="text">When we went to Pulau Ubin to cycle (and gave mosquitoes there a free meal LOL)
+                    </div>
+                </div>
+            </div>
+
+            <div class="imgCont">
+                <img class='image' src="https://drive.google.com/uc?id=1aMPksAJ3fjFmAMn3TyVU2sStukrBQAW3" alt="" />
+                <div class="overlay">
+                    <div class="text">
+                        We went to Marina Barrage for a picnic :)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                my header for no reason too
+            </div>
+            <img src="https://drive.google.com/uc?id=1qGtxvKdgZ1KDheYndZafE5CEFRcnlo5h" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">random card</h5>
+                <p class="card-text">um random card for no reason AHAHAHA</p>
+                <a href="https://www.google.com/" class="btn btn-primary">go to google:)</a>
+            </div>
+        </div>
+
+        <br />
+
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
